@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies-App</title>
+</head>
+<body>
+    <h1>Movies-App!</h1>
+    <div>
+        <p>Rate a movie!</p>
+    </div>
+    <div>
+    <form>
+        <div>
+        <input class="title" placeholder="Enter Movie Title"/> 
+        </div>
+        <br>
+        <div >
+        <input class ="rating" placeholder="Enter Movie Rating"/> 
+        </div>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    </div>
+    <div id="newDiv"></div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script>
+        //jQuery goes here
+        $(function(){ console.log('jQuery initiated baby!')});
+
+        $('form').on('submit', function(e){
+            const button = $("<button class='remove'>x</button>");
+            let title = $('.title').val();
+            let rating = $('.rating').val();
+            const newDiv = $('body').append("<div class='titleRating'></div>")
+            if(rating > 10 || rating < 0){
+                e.preventDefault();
+                alert('Invalid input must be between 0-10')
+                throw new Error('ratings of movies can only be between 0 and 10.');
+            };
+            if(title < 2){
+                e.preventDefault();
+                alert('Invalid must have more then 2 characters')
+                throw new Error('invalid number of characters');
+            };
+            
+            $(newDiv).append(title).append(button);
+            $(newDiv).append(' : ' + rating + '&#9733;').append(button);
+            $(button).on('click', function(){
+                $(newDiv).remove('.titlewz')
+            });
+            e.preventDefault();
+        })
+        
+
+    </script>
+</body>
+</html>
