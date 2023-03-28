@@ -24,7 +24,6 @@
         <button type="submit">Submit</button>
     </form>
     </div>
-    <div id="newDiv"></div>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <script>
         //jQuery goes here
@@ -34,7 +33,7 @@
             const button = $("<button class='remove'>x</button>");
             let title = $('.title').val();
             let rating = $('.rating').val();
-            const newDiv = $('body').append("<div class='titleRating'></div>")
+            const newDiv = $("<div class='titleRating'></div>").appendTo('body')
             if(rating > 10 || rating < 0){
                 e.preventDefault();
                 alert('Invalid input must be between 0-10')
@@ -48,8 +47,8 @@
             
             $(newDiv).append(title).append(button);
             $(newDiv).append(' : ' + rating + '&#9733;').append(button);
-            $(button).on('click', function(){
-                $(newDiv).remove('.titlewz')
+            $(button).on('click', function(evt){
+                $(this).parent().remove();
             });
             e.preventDefault();
         })
