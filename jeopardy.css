@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+#gameBoard {
+    text-align: center;
+    font-size: 9pt;
+    background-color: #7dc734;
+    color: white;
+    border-collapse: collapse;
+  }
+  
+  #gameBoard th, #gameBoard td {
+    border: solid 1px grey;
+    width: 12em;
+    padding: 1em;
+  }
+  
+  th {
+    text-transform: uppercase;
+    font-family: 'Indie Flower', cursive;
+    font-size: 20px;
+    font-weight: bold;
+    height: 4em;
+    text-shadow: black 1px 1px;
+  }
+  
+  td {
+    height: 9em;
+    font-family: Copse, serif;
+    font-size: 15px;
+  }
+  
+  td:hover {
+    cursor: pointer;
+  }
